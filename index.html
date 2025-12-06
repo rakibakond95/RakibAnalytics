@@ -1,0 +1,1066 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" />
+  <title>Rakib Akond — Data Analyst Portfolio</title>
+  <meta name="description" content="Data Analyst specializing in Power BI, SQL, Python, Excel — transforming data into actionable insights.">
+  <meta name="theme-color" content="#7c3aed">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Poppins:wght@500;700;800&family=Sora:wght@600&display=swap" rel="stylesheet">
+  
+  <!-- External Libraries - Optimized Loading -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.0/dist/vanilla-tilt.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
+  
+  <!-- Stylesheet - Preload -->
+  <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+  
+  <!-- Preconnect for Performance -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+
+  <!-- Security Headers -->
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="no-referrer-when-downgrade">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+  
+  <!-- Hide content until loader finishes - Prevents FOUC -->
+  <style>
+    /* Completely hide body content until loaded */
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+    }
+    body:not(.loaded) {
+      overflow: hidden;
+    }
+    body:not(.loaded) > *:not(#page-loader) {
+      opacity: 0 !important;
+      pointer-events: none !important;
+    }
+    body.loaded > *:not(#page-loader) {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      animation: fadeIn 0.5s ease-in;
+    }
+    body.loaded a,
+    body.loaded button,
+    body.loaded video,
+    body.loaded input,
+    body.loaded textarea,
+    body.loaded select,
+    body.loaded [onclick] {
+      pointer-events: auto !important;
+      cursor: pointer !important;
+    }
+    #page-loader {
+      z-index: 99999 !important;
+      display: flex !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      background: linear-gradient(to bottom right, #312e81, #581c87, #831843) !important;
+      pointer-events: auto !important;
+    }
+    body.loaded #page-loader {
+      pointer-events: none !important;
+      z-index: -1 !important;
+    }
+    /* Force enable interactions after load - specific selectors only */
+    body.loaded a, 
+    body.loaded button, 
+    body.loaded [onclick],
+    body.loaded video,
+    body.loaded input,
+    body.loaded textarea,
+    body.loaded select {
+      pointer-events: auto !important;
+    }
+    body.loaded a, 
+    body.loaded button, 
+    body.loaded [onclick] {
+      cursor: pointer !important;
+    }
+    body.loaded input[type="text"],
+    body.loaded input[type="email"],
+    body.loaded textarea {
+      cursor: text !important;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-900 antialiased relative overflow-x-hidden">
+
+  <!-- Enhanced Page Loader -->
+  <div id="page-loader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 transition-opacity duration-500 overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+      <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+      <div class="absolute bottom-1/4 left-1/3 w-96 h-96 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+    </div>
+    <div class="relative flex flex-col items-center gap-6 text-white z-10">
+      <div class="relative">
+        <div class="w-24 h-24 border-4 border-white/20 rounded-full"></div>
+        <div class="w-24 h-24 border-4 border-transparent border-t-white border-r-white rounded-full animate-spin absolute top-0 left-0"></div>
+        <div class="w-16 h-16 border-4 border-transparent border-b-indigo-400 border-l-purple-400 rounded-full animate-spin-reverse absolute top-4 left-4"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-400 rounded-full animate-pulse"></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h2 class="text-2xl font-bold mb-2 bg-gradient-to-r from-white via-indigo-200 to-purple-200 bg-clip-text text-transparent">Loading Portfolio</h2>
+        <p class="text-sm text-white/80 font-medium">Preparing your data analytics experience...</p>
+        <div class="mt-4 w-64 h-1 bg-white/20 rounded-full overflow-hidden">
+          <div id="loader-progress" class="h-full bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 rounded-full transition-all duration-300" style="width: 0%"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Blob Background -->
+  <div class="absolute inset-0 pointer-events-none -z-10 overflow-hidden">
+    <div id="blob1" class="blob"></div>
+    <div id="blob2" class="blob"></div>
+    <div id="blob3" class="blob"></div>
+  </div>
+
+  <!-- Floating Navigation -->
+  <header class="fixed top-6 left-1/2 -translate-x-1/2 z-40 w-full max-w-7xl px-4">
+    <nav class="backdrop-blur-lg bg-white/70 dark:bg-slate-900/70 border border-white/20 rounded-full px-4 py-2 shadow-xl flex gap-4 items-center justify-between">
+      <a href="#home" class="text-lg font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent hover:scale-105 transition-transform">Rakib Akond</a>
+
+      <div class="hidden md:flex gap-3 items-center">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#case-studies">Case Studies</a>
+        <a class="nav-link" href="#process">Process</a>
+        <a class="nav-link" href="#services">Services</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-white/20 transition" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+
+      <div class="hidden md:flex items-center gap-2">
+        <a class="social-icon" href="https://github.com/rakibakond95" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+
+        <a class="social-icon" href="https://www.linkedin.com/in/rakibakond" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+
+        <a class="social-icon" href="https://www.fiverr.com/s/5r9ZY5z" target="_blank" rel="noopener noreferrer" title="Fiverr" aria-label="Fiverr Profile">
+          <img src="images/fiverr.png" alt="Fiverr" class="w-5 h-5 object-contain" />
+        </a>
+
+        <a class="social-icon" href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" rel="noopener noreferrer" title="Upwork" aria-label="Upwork Profile">
+          <img src="images/upwork.webp" alt="Upwork" class="w-5 h-5 object-contain" />
+        </a>
+
+        <a class="social-icon" href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" title="YouTube" aria-label="YouTube Channel">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+        </a>
+
+        <a class="social-icon" href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+          </svg>
+        </a>
+
+        <a class="social-icon" href="https://x.com/yourusername" target="_blank" rel="noopener noreferrer" title="X (Twitter)" aria-label="X Profile">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+
+        <button id="theme-toggle" aria-label="Toggle theme" class="p-2 rounded-md hover:scale-105 transition" title="Toggle theme">
+          <svg id="theme-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+          </svg>
+        </button>
+
+        <a href="#contact" class="btn-primary px-4 py-2 rounded-full text-sm hidden lg:inline-flex items-center gap-2">Hire Me</a>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden mt-4 backdrop-blur-lg bg-white/90 dark:bg-slate-900/90 border border-white/20 rounded-2xl shadow-xl p-4 space-y-2">
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#about">About</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#projects">Projects</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#case-studies">Case Studies</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#process">Process</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#services">Services</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#skills">Skills</a>
+      <a class="block nav-link py-2 px-4 rounded-lg hover:bg-white/50" href="#contact">Contact</a>
+      <a href="#contact" class="block btn-primary px-4 py-2 rounded-full text-sm text-center mt-2">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen grid place-items-center pt-24 px-6 md:px-12">
+    <div class="container max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6">
+        <div class="inline-block">
+          <h1 class="leading-none tracking-tight">
+            <span class="block text-6xl md:text-7xl lg:text-8xl font-black bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-400 bg-clip-text text-transparent animate-gradient">
+              Rakib
+            </span>
+            <span class="block text-2xl md:text-3xl lg:text-4xl font-semibold text-indigo-700 dark:text-indigo-400 mt-2">
+              Rakib Akond — Data Analyst & Enterprise Portfolio
+            </span>
+          </h1>
+          <div class="text-sm md:text-base font-semibold text-indigo-600 dark:text-indigo-400 mt-2">📊 Data Analyst • Analytics Specialist</div>
+        </div>
+
+        <div class="badge inline-flex items-center gap-2 bg-gradient-to-r from-indigo-500 to-sky-400 text-white px-3 py-1 rounded-full text-sm shadow-md">
+          Data-Driven Insights • Analytics Expert
+        </div>
+
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight">
+          I transform complex data into clear stories that drive business growth.
+        </h2>
+
+        <p class="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl">
+          Data Analyst specializing in Power BI, SQL, Python, and Excel — turning raw data into dashboards, insights, and strategic decisions that matter.
+        </p>
+
+        <div class="flex flex-wrap gap-4">
+          <button id="hire-btn" class="btn btn-primary dynamic-btn px-5 py-3 rounded-full shadow-lg">Hire Me — Book Intro</button>
+          <a href="#projects" class="btn btn-outline dynamic-btn px-5 py-3 rounded-full">View Projects</a>
+          <a href="resume/Rakib_Akond_Resume.pdf" download class="btn btn-outline dynamic-btn px-5 py-3 rounded-full inline-flex items-center gap-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Download Resume
+          </a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-6">
+          <div class="stat card glass p-4 border-2 border-indigo-200 dark:border-indigo-800 hover:border-indigo-400 dark:hover:border-indigo-600 transition-colors">
+            <div class="text-2xl font-bold counter bg-gradient-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent" data-counter="50">0</div>
+            <div class="text-xs text-slate-500">+ Projects</div>
+          </div>
+          <div class="stat card glass p-4 border-2 border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 dark:hover:border-emerald-600 transition-colors">
+            <div class="text-2xl font-bold counter bg-gradient-to-r from-emerald-600 to-cyan-500 bg-clip-text text-transparent" data-counter="30">0</div>
+            <div class="text-xs text-slate-500">Happy Clients</div>
+          </div>
+          <div class="stat card glass p-4 border-2 border-rose-200 dark:border-rose-800 hover:border-rose-400 dark:hover:border-rose-600 transition-colors">
+            <div class="text-2xl font-bold counter bg-gradient-to-r from-rose-600 to-pink-500 bg-clip-text text-transparent" data-counter="5">0</div>
+            <div class="text-xs text-slate-500">Years Experience</div>
+          </div>
+          <div class="stat card glass p-4 border-2 border-amber-200 dark:border-amber-800 hover:border-amber-400 dark:hover:border-amber-600 transition-colors">
+            <div class="text-2xl font-bold counter bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent" data-counter="95">0</div>
+            <div class="text-xs text-slate-500">% Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative grid place-items-center">
+        <div class="relative w-80 h-80 md:w-96 md:h-96">
+          <div class="floating-ui ui-1 glass">Power BI</div>
+          <div class="floating-ui ui-2 glass">SQL</div>
+          <div class="floating-ui ui-3 glass">Python</div>
+          <div class="floating-ui ui-4 glass">Excel</div>
+
+          <div class="profile-wrap tilt" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.6">
+            <img src="images/profile.png" alt="Rakib Akond" loading="eager" fetchpriority="high" width="400" height="400" class="profile rounded-3xl object-cover w-full h-full shadow-2xl border-4 border-white/60" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27400%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27400%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2730%27 dy=%27210%27 x=%2750%25%27 text-anchor=%27middle%27%3EProfile Image%3C/text%3E%3C/svg%3E'"/>
+            <div class="profile-glow"></div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-0 translate-y-12 md:translate-y-16">
+          <a href="#contact" class="btn-ghost px-4 py-2 rounded-full shadow-md">Schedule 15‑min call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-24 px-6 md:px-12 bg-gradient-to-br from-slate-50 to-white dark:from-slate-900 dark:to-slate-800">
+    <div class="container max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+      <div class="space-y-6">
+        <h2 class="section-title">About Me</h2>
+        <div class="prose text-slate-600 dark:text-slate-300 space-y-3 text-sm md:text-base max-w-none">
+          <p>I'm a Data Analyst who transforms complex datasets into clear stories, strategic insights, and business-ready dashboards. With expertise in Power BI, Excel, SQL, Python (Pandas, NumPy, Matplotlib), and GitHub, I focus on creating analytical solutions that help companies understand performance, spot trends, and make confident decisions.</p>
+
+          <p><strong>My Analytics Journey:</strong></p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Telco churn analysis to understand customer behavior and reduce churn</li>
+            <li>Superstore sales analytics to optimize profitability and product performance</li>
+            <li>Excel automation workflows for online retail operations</li>
+            <li>Healthcare hospital management dashboards for operational efficiency</li>
+            <li>Marketing, advertising & competitor insights to guide strategic campaigns</li>
+          </ul>
+
+          <p>My approach blends data modeling, visualization, and automation with strong business understanding. Whether it's cleaning messy data, building automated pipelines, or designing interactive dashboards, I'm driven by one goal: <strong>turning data into decisions that create measurable impact.</strong></p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4 mt-4">
+          <div class="about-card glass p-4">
+            <div class="text-sm text-slate-500">Mission</div>
+            <div class="font-semibold">Help teams unlock data-driven decisions.</div>
+          </div>
+          <div class="about-card glass p-4">
+            <div class="text-sm text-slate-500">Values</div>
+            <div class="font-semibold">Clarity · Impact · Excellence</div>
+          </div>
+        </div>
+      </div>
+
+        <div class="relative">
+        <div class="video-container glass rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all group relative border-2 border-indigo-200 dark:border-indigo-800">
+          <div class="relative h-96 bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-800 overflow-hidden rounded-2xl">
+            <video id="introVideo" class="w-full h-full object-cover rounded-2xl" width="100%" height="500" controls playsinline preload="auto" poster="images/video-poster.jpg" loading="eager">
+              <source src="video/intro.mp4" type="video/mp4">
+              <source src="video/intro.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Professional Video Controls Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none rounded-2xl"></div>
+
+            <!-- Mute Toggle -->
+            <div class="absolute top-4 right-4 z-20">
+              <button id="muteBtn" aria-label="Mute / Unmute" class="px-4 py-2 rounded-full bg-white/95 dark:bg-slate-800/95 text-indigo-600 dark:text-indigo-400 shadow-xl hover:scale-110 transition-all backdrop-blur-md border border-indigo-200 dark:border-indigo-700">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Professional Play/Pause Overlay -->
+            <div id="videoOverlay" class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/50 transition-all cursor-pointer rounded-2xl">
+              <button id="videoOverlayBtn" class="video-play-btn w-20 h-20 rounded-full bg-gradient-to-r from-indigo-600 to-sky-500 flex items-center justify-center transition-all shadow-2xl hover:scale-110 hover:shadow-indigo-500/50 border-4 border-white/30" aria-label="Play / Pause">
+                <svg id="videoOverlayIcon" class="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Video Title Overlay -->
+            <div class="absolute bottom-4 left-4 z-20 pointer-events-none">
+              <h4 class="text-white font-bold text-lg mb-1 drop-shadow-lg">Professional Introduction</h4>
+              <p class="text-white/90 text-sm drop-shadow-md">Data Analyst Portfolio Overview</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-4">
+          <h3 class="font-semibold text-slate-900 dark:text-slate-100">Core Expertise</h3>
+          <div class="skill">
+            <div class="flex justify-between mb-1">
+              <span class="text-slate-700 dark:text-slate-300">Power BI & DAX</span>
+              <span class="text-slate-600 dark:text-slate-400">95%</span>
+            </div>
+            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-indigo-500 to-sky-400 rounded-full progress-bar" style="width:0%" data-progress="95"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="flex justify-between mb-1">
+              <span class="text-slate-700 dark:text-slate-300">SQL (PostgreSQL/SQLite)</span>
+              <span class="text-slate-600 dark:text-slate-400">92%</span>
+            </div>
+            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-indigo-500 to-rose-500 rounded-full progress-bar" style="width:0%" data-progress="92"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="flex justify-between mb-1">
+              <span class="text-slate-700 dark:text-slate-300">Python (Pandas, Matplotlib)</span>
+              <span class="text-slate-600 dark:text-slate-400">88%</span>
+            </div>
+            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-emerald-400 to-sky-500 rounded-full progress-bar" style="width:0%" data-progress="88"></div>
+            </div>
+          </div>
+          <div class="skill">
+            <div class="flex justify-between mb-1">
+              <span class="text-slate-700 dark:text-slate-300">Excel (Power Query, VBA)</span>
+              <span class="text-slate-600 dark:text-slate-400">90%</span>
+            </div>
+            <div class="h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full progress-bar" style="width:0%" data-progress="90"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-8">Technical Skills</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <h3 class="font-semibold text-lg text-slate-900 dark:text-slate-100">Core Analytics Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Power BI & DAX</span>
+            <span class="skill-badge">Excel (Power Query, Pivot Tables, VBA)</span>
+            <span class="skill-badge">Python (Pandas, Matplotlib)</span>
+            <span class="skill-badge">SQL (PostgreSQL/SQLite)</span>
+            <span class="skill-badge">Data Cleaning & ETL</span>
+            <span class="skill-badge">Data Visualization</span>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <h3 class="font-semibold text-lg text-slate-900 dark:text-slate-100">Supporting Skills</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Statistical Analysis</span>
+            <span class="skill-badge">GitHub & Version Control</span>
+            <span class="skill-badge">Data Communication</span>
+            <span class="skill-badge">Strong Communication Skills</span>
+            <span class="skill-badge">Problem Solving</span>
+            <span class="skill-badge">Business Analysis</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-20 px-6 md:px-12 bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-800">
+    <div class="container max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-8 flex-wrap gap-4">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="flex gap-2 items-center">
+          <select id="project-filter" class="p-2 rounded-md border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100">
+            <option value="all">All</option>
+            <option value="dashboard">Dashboards</option>
+            <option value="analysis">Analysis</option>
+            <option value="automation">Automation</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="projects-grid" class="grid md:grid-cols-3 gap-6">
+        <article class="project-card tilt" data-category="dashboard" data-tilt data-tilt-max="12">
+          <figure class="h-44 overflow-hidden rounded-xl">
+            <img src="images/project1.png" alt="Telco Churn Analytics" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2718%27 dy=%27100%27 x=%2750%25%27 text-anchor=%27middle%27%3EProject Image%3C/text%3E%3C/svg%3E'"/>
+          </figure>
+          <div class="p-4">
+            <h3 class="font-semibold text-slate-900 dark:text-slate-100">Telco Churn Analytics</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Customer behavior analysis & churn prediction (SQL, Python, Power BI)</p>
+            <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+              <a class="text-indigo-600 dark:text-indigo-400 hover:underline project-link" href="https://github.com/rakibakond95" target="_blank" rel="noopener">View on GitHub</a>
+              <div class="flex gap-2">
+                <span class="tag">Power BI</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card tilt" data-category="analysis" data-tilt data-tilt-max="12">
+          <figure class="h-44 overflow-hidden rounded-xl">
+            <img src="images/project2.png" alt="Superstore Sales Analytics" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2718%27 dy=%27100%27 x=%2750%25%27 text-anchor=%27middle%27%3EProject Image%3C/text%3E%3C/svg%3E'"/>
+          </figure>
+          <div class="p-4">
+            <h3 class="font-semibold text-slate-900 dark:text-slate-100">Superstore Sales Analytics</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Profitability optimization & product performance (SQL, Excel, Tableau)</p>
+            <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+              <a class="text-indigo-600 dark:text-indigo-400 hover:underline project-link" href="https://github.com/rakibakond95" target="_blank" rel="noopener">View on GitHub</a>
+              <div class="flex gap-2">
+                <span class="tag">Excel</span>
+                <span class="tag">SQL</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card tilt" data-category="automation" data-tilt data-tilt-max="12">
+          <figure class="h-44 overflow-hidden rounded-xl">
+            <img src="images/project3.png" alt="Hospital Management Dashboard" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3Ctext fill=%27%23999%27 font-family=%27sans-serif%27 font-size=%2718%27 dy=%27100%27 x=%2750%25%27 text-anchor=%27middle%27%3EProject Image%3C/text%3E%3C/svg%3E'"/>
+          </figure>
+          <div class="p-4">
+            <h3 class="font-semibold text-slate-900 dark:text-slate-100">Hospital Management Dashboard</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Operational efficiency & resource optimization (Power BI, ETL)</p>
+            <div class="mt-3 flex items-center justify-between flex-wrap gap-2">
+              <a class="text-indigo-600 dark:text-indigo-400 hover:underline project-link" href="https://github.com/rakibakond95" target="_blank" rel="noopener">View on GitHub</a>
+              <div class="flex gap-2">
+                <span class="tag">Power BI</span>
+                <span class="tag">ETL</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Case Studies Section -->
+  <section id="case-studies" class="py-24 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-6">Enterprise Case Studies</h2>
+
+      <div class="grid gap-8">
+        <article class="case-study glass p-6 rounded-2xl">
+          <div class="grid md:grid-cols-3 gap-6 items-start">
+            <div class="md:col-span-2 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Telco Churn Prediction — 22% Churn Reduction</h3>
+              <div class="flex gap-3 text-sm text-slate-500 dark:text-slate-400 flex-wrap">
+                <div>Industry: Telecommunications</div>
+                <div>Tools: SQL, Python, Power BI</div>
+                <div>Timeline: 8 weeks</div>
+              </div>
+
+              <div class="mt-4 grid gap-3 text-slate-700 dark:text-slate-300">
+                <div><strong>Situation:</strong> 28% customer churn rate; lacked visibility into churn drivers and customer segments at risk.</div>
+                <div><strong>Task:</strong> Identify churn patterns, predict at-risk customers, and build dashboards for proactive retention.</div>
+                <div><strong>Action:</strong> Analyzed 50K+ customer records using SQL & Python (logistic regression model), built predictive scoring in Power BI with real-time alerts.</div>
+                <div><strong>Result:</strong> Churn reduced to 6%, retention strategy improved, revenue impact: <strong>+$450K/year</strong>.</div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="h-44 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <img src="images/project1.png" alt="churn analysis" class="w-full h-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3C/svg%3E'"/>
+              </div>
+              <div class="h-44 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <img src="images/project2.png" alt="dashboard result" class="w-full h-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3C/svg%3E'"/>
+              </div>
+              <div class="flex gap-2">
+                <a href="https://github.com/rakibakond95" target="_blank" rel="noopener" class="btn-outline px-3 py-2 rounded-full">View Project</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-study glass p-6 rounded-2xl">
+          <div class="grid md:grid-cols-3 gap-6 items-start">
+            <div class="md:col-span-2 space-y-4">
+              <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Superstore Sales Optimization — 18% Revenue Growth</h3>
+              <div class="flex gap-3 text-sm text-slate-500 dark:text-slate-400 flex-wrap">
+                <div>Industry: Retail</div>
+                <div>Tools: Excel, SQL, Power BI</div>
+                <div>Timeline: 6 weeks</div>
+              </div>
+
+              <div class="mt-4 grid gap-3 text-slate-700 dark:text-slate-300">
+                <div><strong>Situation:</strong> Manual reporting took 3 days/week; low profitability on 40% of product lines; no segment visibility.</div>
+                <div><strong>Task:</strong> Automate reporting, identify unprofitable segments, optimize product mix and pricing.</div>
+                <div><strong>Action:</strong> Built Excel automation (VBA macros) for daily ETL, created Power BI dashboard with profitability by segment, product, & region.</div>
+                <div><strong>Result:</strong> Reporting reduced to 2 hours, profitability increased 18%, discontinued 15 losing SKUs, ROI: <strong>$320K first year</strong>.</div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <div class="h-44 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <img src="images/project2.png" alt="before sales analysis" class="w-full h-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3C/svg%3E'"/>
+              </div>
+              <div class="h-44 bg-slate-100 dark:bg-slate-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+                <img src="images/project3.png" alt="after optimization" class="w-full h-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27200%27%3E%3Crect fill=%27%23ddd%27 width=%27400%27 height=%27200%27/%3E%3C/svg%3E'"/>
+              </div>
+              <div class="flex gap-2">
+                <a href="https://github.com/rakibakond95" target="_blank" rel="noopener" class="btn-outline px-3 py-2 rounded-full">View Project</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process/Methodology Section -->
+  <section id="process" class="py-20 px-6 md:px-12 bg-slate-50 dark:bg-slate-800">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-12">My Analytics Process</h2>
+        <div class="grid md:grid-cols-4 gap-6">
+        <div class="process-step glass p-6 rounded-xl text-center border-2 border-indigo-200 dark:border-indigo-800 hover:border-indigo-400 transition-colors">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-sky-400 flex items-center justify-center text-white text-2xl font-bold shadow-lg">1</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Discovery</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Understand your business goals, data sources, and key challenges</p>
+        </div>
+        <div class="process-step glass p-6 rounded-xl text-center border-2 border-emerald-200 dark:border-emerald-800 hover:border-emerald-400 transition-colors">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-400 flex items-center justify-center text-white text-2xl font-bold shadow-lg">2</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Analysis</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Clean, transform, and analyze data to uncover actionable insights</p>
+        </div>
+        <div class="process-step glass p-6 rounded-xl text-center border-2 border-rose-200 dark:border-rose-800 hover:border-rose-400 transition-colors">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400 flex items-center justify-center text-white text-2xl font-bold shadow-lg">3</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Visualization</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Build intuitive dashboards and reports that tell your data story</p>
+        </div>
+        <div class="process-step glass p-6 rounded-xl text-center border-2 border-amber-200 dark:border-amber-800 hover:border-amber-400 transition-colors">
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-400 flex items-center justify-center text-white text-2xl font-bold shadow-lg">4</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Optimization</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Iterate and refine based on feedback to maximize business impact</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="py-20 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-8">Certifications & Achievements</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="cert-card glass p-6 rounded-xl hover:scale-105 transition-transform">
+          <div class="text-4xl mb-4">🏆</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Microsoft Certified</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Power BI Data Analyst Associate</p>
+          <div class="mt-3 text-xs text-indigo-600 dark:text-indigo-400">2024</div>
+        </div>
+        <div class="cert-card glass p-6 rounded-xl hover:scale-105 transition-transform">
+          <div class="text-4xl mb-4">📜</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Google Analytics</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Certified Professional</p>
+          <div class="mt-3 text-xs text-indigo-600 dark:text-indigo-400">2023</div>
+        </div>
+        <div class="cert-card glass p-6 rounded-xl hover:scale-105 transition-transform">
+          <div class="text-4xl mb-4">⭐</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Data Science</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400">Python for Data Analysis</p>
+          <div class="mt-3 text-xs text-indigo-600 dark:text-indigo-400">2023</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 px-6 md:px-12 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-8">Services & Pricing</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="service-card glass p-5 rounded-xl hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold text-lg text-slate-900 dark:text-slate-100">Dashboard Package</div>
+            <div class="service-icon">📊</div>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-3">Interactive Power BI dashboards with real-time data refresh & automated alerts.</p>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-400">Tools: Power BI, SQL, ETL</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm text-slate-500">3-6 days</div>
+            <div class="font-bold text-indigo-600 dark:text-indigo-400 text-lg">$450</div>
+          </div>
+        </div>
+
+        <div class="service-card glass p-5 rounded-xl hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold text-lg text-slate-900 dark:text-slate-100">Excel Automation</div>
+            <div class="service-icon">📈</div>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-3">VBA macros, Power Query workflows, pivot tables & automated reporting systems.</p>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-400">Tools: Excel, VBA, Power Query</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm text-slate-500">3-4 days</div>
+            <div class="font-bold text-indigo-600 dark:text-indigo-400 text-lg">$250</div>
+          </div>
+        </div>
+
+        <div class="service-card glass p-5 rounded-xl hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold text-lg text-slate-900 dark:text-slate-100">Data Analysis</div>
+            <div class="service-icon">🔍</div>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-3">Full statistical analysis, ETL pipelines, data cleaning & insight discovery.</p>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-400">Tools: Python, SQL, Pandas</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm text-slate-500">5-7 days</div>
+            <div class="font-bold text-indigo-600 dark:text-indigo-400 text-lg">$375</div>
+          </div>
+        </div>
+
+        <div class="service-card glass p-5 rounded-xl hover:scale-105 transition-transform">
+          <div class="flex items-center justify-between">
+            <div class="font-semibold text-lg text-slate-900 dark:text-slate-100">Consulting</div>
+            <div class="service-icon">💼</div>
+          </div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-3">Strategic data consulting, analytics roadmap planning & team training.</p>
+          <div class="mt-3 text-sm text-slate-600 dark:text-slate-400">Tools: All + Business Strategy</div>
+          <div class="mt-4 flex items-center justify-between">
+            <div class="text-sm text-slate-500">Flexible</div>
+            <div class="font-bold text-indigo-600 dark:text-indigo-400 text-lg">$500+</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section id="newsletter" class="py-20 px-6 md:px-12 bg-gradient-to-r from-indigo-600 to-sky-500">
+    <div class="container max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Stay Updated with Data Insights</h2>
+      <p class="text-indigo-100 text-lg mb-8">Get weekly tips, case studies, and data analytics best practices delivered to your inbox.</p>
+      <form id="newsletterForm" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+        <input type="email" name="email" required placeholder="Enter your email" class="flex-1 px-4 py-3 rounded-full border-0 focus:ring-2 focus:ring-white/50 text-slate-900" aria-label="Email address" />
+        <button type="submit" class="btn bg-white text-indigo-600 hover:bg-indigo-50 px-6 py-3 rounded-full font-semibold transition">Subscribe</button>
+      </form>
+      <p class="text-indigo-100 text-sm mt-4">No spam. Unsubscribe anytime.</p>
+      <div id="newsletter-message" class="hidden text-white mt-4"></div>
+    </div>
+  </section>
+
+  <!-- Analytics Dashboard Section -->
+  <section id="dashboard" class="py-20 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-6">Portfolio Analytics</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="glass p-4 rounded-xl">
+          <div class="text-sm text-slate-500 dark:text-slate-400">Total Visitors</div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3" id="visitors-count">0</div>
+          <div class="chart-container">
+            <canvas id="visitorsChart"></canvas>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <div class="text-sm text-slate-500 dark:text-slate-400">Project Views</div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3" id="projects-count">0</div>
+          <div class="chart-container">
+            <canvas id="projectsChart"></canvas>
+          </div>
+        </div>
+        <div class="glass p-4 rounded-xl">
+          <div class="text-sm text-slate-500 dark:text-slate-400">Engagement</div>
+          <div class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-3" id="engagement-count">0</div>
+          <div class="chart-container">
+            <canvas id="geoChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Logos Section -->
+  <section id="client-logos" class="py-16 px-6 md:px-12 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-700">
+    <div class="container max-w-6xl mx-auto">
+      <p class="text-center text-sm text-slate-500 dark:text-slate-400 mb-8">Trusted by innovative companies worldwide</p>
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
+        <div class="client-logo glass p-4 rounded-lg">Company Logo 1</div>
+        <div class="client-logo glass p-4 rounded-lg">Company Logo 2</div>
+        <div class="client-logo glass p-4 rounded-lg">Company Logo 3</div>
+        <div class="client-logo glass p-4 rounded-lg">Company Logo 4</div>
+        <div class="client-logo glass p-4 rounded-lg">Company Logo 5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Proof Section -->
+  <section id="social-proof" class="py-20 px-6 md:px-12 bg-slate-50 dark:bg-slate-800">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-6">Trusted by Leading Companies</h2>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="testimonial glass p-6 rounded-xl">
+          <div class="flex gap-4 items-center">
+            <img src="images/pic3.webp" alt="Testimonial avatar" class="w-12 h-12 rounded-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2748%27 height=%2748%27%3E%3Ccircle fill=%27%23ddd%27 cx=%2724%27 cy=%2724%27 r=%2724%27/%3E%3C/svg%3E'"/>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-slate-100">CEO, Telco</div>
+              <div class="text-sm text-slate-500 dark:text-slate-400">"Turned churn crisis into competitive advantage. Exceptional work."</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial glass p-6 rounded-xl">
+          <div class="flex gap-4 items-center">
+            <img src="images/pic.webp" alt="Testimonial avatar" class="w-12 h-12 rounded-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2748%27 height=%2748%27%3E%3Ccircle fill=%27%23ddd%27 cx=%2724%27 cy=%2724%27 r=%2724%27/%3E%3C/svg%3E'"/>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-slate-100">COO, Retail</div>
+              <div class="text-sm text-slate-500 dark:text-slate-400">"Data insights within a week. Best analytics partner we've had."</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial glass p-6 rounded-xl">
+          <div class="flex gap-4 items-center">
+            <img src="images/pic2.webp" alt="Testimonial avatar" class="w-12 h-12 rounded-full object-cover" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2748%27 height=%2748%27%3E%3Ccircle fill=%27%23ddd%27 cx=%2724%27 cy=%2724%27 r=%2724%27/%3E%3C/svg%3E'"/>
+            <div>
+              <div class="font-semibold text-slate-900 dark:text-slate-100">CFO, Healthcare</div>
+              <div class="text-sm text-slate-500 dark:text-slate-400">"Professional, responsive, delivered on-time & on-budget."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Calculator Section -->
+  <section id="pricing-calculator" class="py-20 px-6 md:px-12 bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-slate-800">
+    <div class="container max-w-4xl mx-auto">
+      <h2 class="section-title mb-8 text-center">Get Instant Price Estimate</h2>
+      <div class="glass p-8 rounded-2xl">
+        <div class="space-y-6">
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-slate-900 dark:text-slate-100">Project Type</label>
+            <select id="project-type" class="input w-full">
+              <option value="dashboard">Dashboard Package</option>
+              <option value="excel">Excel Automation</option>
+              <option value="analysis">Data Analysis</option>
+              <option value="consulting">Consulting</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-slate-900 dark:text-slate-100">Complexity Level</label>
+            <select id="complexity" class="input w-full">
+              <option value="basic">Basic</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="enterprise">Enterprise</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-2 text-slate-900 dark:text-slate-100">Timeline</label>
+            <select id="timeline" class="input w-full">
+              <option value="urgent">Urgent (1-3 days)</option>
+              <option value="standard">Standard (3-7 days)</option>
+              <option value="flexible">Flexible (1-2 weeks)</option>
+            </select>
+          </div>
+          <div class="p-4 bg-gradient-to-r from-indigo-500 to-sky-400 rounded-xl text-white">
+            <div class="text-sm mb-1">Estimated Price</div>
+            <div id="estimated-price" class="text-3xl font-bold">$0</div>
+            <div class="text-sm opacity-90 mt-1">Final price may vary based on requirements</div>
+          </div>
+          <button class="btn btn-primary w-full" onclick="window.location.href='#contact'">Get Detailed Quote</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Metrics Section -->
+  <section id="success-metrics" class="py-20 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <h2 class="section-title mb-12 text-center">Proven Track Record</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="metric-card glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent mb-2">
+            <span class="counter" data-counter="450">0</span>K+
+          </div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Data Points Analyzed</div>
+        </div>
+        <div class="metric-card glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent mb-2">
+            <span class="counter" data-counter="98">0</span>%
+          </div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Client Satisfaction</div>
+        </div>
+        <div class="metric-card glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent mb-2">
+            <span class="counter" data-counter="72">0</span>+
+          </div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Dashboards Created</div>
+        </div>
+        <div class="metric-card glass p-6 rounded-xl text-center">
+          <div class="text-4xl font-bold bg-gradient-to-r from-indigo-600 to-sky-500 bg-clip-text text-transparent mb-2">
+            <span class="counter" data-counter="1.2">0</span>M+
+          </div>
+          <div class="text-sm text-slate-600 dark:text-slate-400">Revenue Generated for Clients</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources/Blog Section -->
+  <section id="resources" class="py-20 px-6 md:px-12 bg-gradient-to-b from-slate-50 to-white dark:from-slate-800 dark:to-slate-900">
+    <div class="container max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="section-title">Latest Resources & Insights</h2>
+        <a href="#resources" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">View All →</a>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <article class="resource-card glass p-6 rounded-xl hover:scale-105 transition-transform cursor-pointer" onclick="window.open('blog/power-bi-dashboard-plays.html', '_blank')">
+          <div class="w-full h-40 bg-gradient-to-br from-indigo-500 to-sky-400 rounded-lg mb-4 flex items-center justify-center text-white text-4xl">📊</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">7 Power BI Dashboard Plays That Make Executives Say "Wow"</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">Learn the exact layouts, KPI structures, and storytelling tricks I use to turn raw operational data into executive-ready dashboards that drive faster, better decisions. Discover how to transform complex metrics into clear, actionable insights.</p>
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">Read the complete dashboard framework →</div>
+        </article>
+        <article class="resource-card glass p-6 rounded-xl hover:scale-105 transition-transform cursor-pointer" onclick="window.open('blog/excel-automation-blueprint.html', '_blank')">
+          <div class="w-full h-40 bg-gradient-to-br from-emerald-500 to-cyan-400 rounded-lg mb-4 flex items-center justify-center text-white text-4xl">📈</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">From Manual Chaos to One-Click Reports: Excel Automation That Saves 10+ Hours/Week</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">See how I use Power Query, dynamic arrays, and VBA to eliminate repetitive Excel work, reduce errors by 95%, and give teams back a full working day every single week. Real client case studies included.</p>
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">See the automation blueprint I use →</div>
+        </article>
+        <article class="resource-card glass p-6 rounded-xl hover:scale-105 transition-transform cursor-pointer" onclick="window.open('blog/data-decision-framework.html', '_blank')">
+          <div class="w-full h-40 bg-gradient-to-br from-rose-500 to-pink-400 rounded-lg mb-4 flex items-center justify-center text-white text-4xl">🎯</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">The 5-Step Framework I Use to Turn "Messy Data" into Clear Business Decisions</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">I break down my end-to-end workflow—from cleaning SQL tables to building stakeholder-friendly visuals—so you can see exactly how I move from raw data chaos to concrete business recommendations that executives trust.</p>
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">Learn the decision-making framework →</div>
+        </article>
+        <article class="resource-card glass p-6 rounded-xl hover:scale-105 transition-transform cursor-pointer" onclick="window.open('blog/sql-optimization-guide.html', '_blank')">
+          <div class="w-full h-40 bg-gradient-to-br from-purple-500 to-violet-400 rounded-lg mb-4 flex items-center justify-center text-white text-4xl">💾</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">SQL Performance Optimization: 10 Techniques That Cut Query Time by 80%</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">Master advanced SQL optimization strategies including indexing, query restructuring, and execution plan analysis. Learn how to transform slow-running queries into lightning-fast operations that handle millions of records efficiently.</p>
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">Discover SQL optimization secrets →</div>
+        </article>
+        <article class="resource-card glass p-6 rounded-xl hover:scale-105 transition-transform cursor-pointer" onclick="window.open('blog/python-data-analysis.html', '_blank')">
+          <div class="w-full h-40 bg-gradient-to-br from-orange-500 to-amber-400 rounded-lg mb-4 flex items-center justify-center text-white text-4xl">🐍</div>
+          <h3 class="font-semibold text-lg mb-2 text-slate-900 dark:text-slate-100">Python Data Analysis Mastery: Pandas, NumPy & Matplotlib Workflows</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 mb-3">Unlock the power of Python for data analysis with practical workflows using Pandas for data manipulation, NumPy for numerical computing, and Matplotlib for stunning visualizations. Real-world examples and best practices included.</p>
+          <div class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold">Master Python data analysis →</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section id="final-cta" class="py-24 px-6 md:px-12 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="container max-w-4xl mx-auto text-center relative z-10">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to Transform Your Data Into Strategic Insights?</h2>
+      <p class="text-xl text-indigo-100 mb-8 max-w-2xl mx-auto">Join 30+ companies who've accelerated their growth with data-driven decisions. Let's discuss how I can help your business.</p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="#contact" class="btn bg-white text-indigo-600 hover:bg-indigo-50 px-8 py-4 rounded-full text-lg font-semibold shadow-2xl hover:scale-105 transition-transform">
+          Start Your Project Today
+        </a>
+        <a href="#case-studies" class="btn bg-white/10 backdrop-blur-md text-white border-2 border-white/30 hover:bg-white/20 px-8 py-4 rounded-full text-lg font-semibold">
+          View Case Studies
+        </a>
+      </div>
+      <div class="mt-8 flex items-center justify-center gap-6 text-white/80 text-sm">
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>Free Consultation</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>24h Response Time</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+          <span>100% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 md:px-12 bg-white dark:bg-slate-900">
+    <div class="container max-w-4xl mx-auto">
+      <h2 class="section-title mb-6">Get In Touch</h2>
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <form id="contactForm" class="glass p-6 rounded-xl space-y-4" action="mailto:rakib.akond@outlook.com" method="POST" enctype="text/plain">
+          <input type="text" name="name" required placeholder="Your name" class="input" aria-label="Your name" />
+          <input type="email" name="email" required placeholder="Your email" class="input" aria-label="Your email" />
+          <textarea name="message" rows="5" required placeholder="Tell me about your project..." class="input" aria-label="Your message"></textarea>
+          <div class="flex gap-3 flex-wrap">
+            <button type="submit" class="btn btn-primary px-4 py-2 rounded-full">Send Message</button>
+            <a href="https://wa.me/01883799630" target="_blank" rel="noopener noreferrer" class="btn btn-outline px-4 py-2 rounded-full">WhatsApp</a>
+          </div>
+          <div id="form-message" class="hidden text-sm mt-2"></div>
+        </form>
+
+        <div class="space-y-6">
+          <div class="glass p-6 rounded-xl">
+            <h3 class="font-semibold mb-4 text-slate-900 dark:text-slate-100">Contact Information</h3>
+            <div class="space-y-4">
+              <div class="flex gap-4 items-start">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Email</div>
+                  <a href="mailto:rakib.akond@outlook.com" data-copy-email class="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">rakib.akond@outlook.com</a>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                <div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Phone</div>
+                  <a href="tel:01883799630" data-copy-phone class="font-semibold text-indigo-600 dark:text-indigo-400 hover:underline cursor-pointer">+880 1883 799 630</a>
+                </div>
+              </div>
+
+              <div class="flex gap-4 items-start">
+                <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M19 11a8 8 0 11-16 0 8 8 0 0116 0m-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2zm2 5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                </svg>
+                <div>
+                  <div class="text-sm text-slate-500 dark:text-slate-400">Connect</div>
+                  <div class="flex gap-3 mt-1 flex-wrap items-center">
+                    <a href="https://github.com/rakibakond95" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">GitHub</a>
+                    <a href="https://www.linkedin.com/in/rakibakond" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">LinkedIn</a>
+                    <a href="https://www.fiverr.com/s/5r9ZY5z" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1">
+                      <img src="images/fiverr.png" alt="Fiverr" class="w-4 h-4" /> Fiverr
+                    </a>
+                    <a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold inline-flex items-center gap-1">
+                      <img src="images/upwork.webp" alt="Upwork" class="w-4 h-4" /> Upwork
+                    </a>
+                    <a href="https://youtube.com/@yourchannel" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">YouTube</a>
+                    <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Instagram</a>
+                    <a href="https://x.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">X</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass p-6 rounded-xl">
+            <h3 class="font-semibold mb-3 text-slate-900 dark:text-slate-100">FAQ</h3>
+            <details class="mb-3 cursor-pointer">
+              <summary class="font-medium text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400">How do I hire you?</summary>
+              <div class="mt-2 text-sm text-slate-500 dark:text-slate-400">Send a message via the contact form, email me, or connect on LinkedIn. I respond within 24 hours.</div>
+            </details>
+            <details class="mb-3 cursor-pointer">
+              <summary class="font-medium text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400">What's your typical turnaround?</summary>
+              <div class="mt-2 text-sm text-slate-500 dark:text-slate-400">2–8 weeks depending on scope. We discuss timeline during our initial consultation.</div>
+            </details>
+            <details class="cursor-pointer">
+              <summary class="font-medium text-slate-900 dark:text-slate-100 hover:text-indigo-600 dark:hover:text-indigo-400">Do you offer ongoing support?</summary>
+              <div class="mt-2 text-sm text-slate-500 dark:text-slate-400">Yes, I offer maintenance, training, and retainer-based support for ongoing analytics needs.</div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 bg-slate-900 text-white">
+    <div class="container max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 px-6">
+      <div class="text-sm">© 2025 Rakib Akond</div>
+      <div class="flex gap-4 items-center flex-wrap justify-center">
+        <a href="https://github.com/rakibakond95" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition">GitHub</a>
+        <a href="https://www.linkedin.com/in/rakibakond" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition">LinkedIn</a>
+        <a href="https://www.fiverr.com/s/5r9ZY5z" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition inline-flex items-center gap-1">
+          <img src="images/fiverr.png" alt="Fiverr" class="w-4 h-4 opacity-80 hover:opacity-100" /> Fiverr
+        </a>
+        <a href="https://www.upwork.com/freelancers/~yourprofile" target="_blank" rel="noopener noreferrer" class="text-white/80 hover:text-white transition inline-flex items-center gap-1">
+          <img src="images/upwork.webp" alt="Upwork" class="w-4 h-4 opacity-80 hover:opacity-100" /> Upwork
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 z-50 p-4 bg-gradient-to-r from-indigo-600 to-sky-500 text-white rounded-full shadow-2xl opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:shadow-indigo-500/50" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </button>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
+
