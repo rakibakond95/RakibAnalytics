@@ -367,16 +367,16 @@
       </div>
 
         <div class="relative w-full">
-        <div class="video-container glass rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all group relative border-2 border-cyan-500/30">
-          <div class="relative w-full bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 overflow-hidden rounded-2xl">
-            <video id="introVideo" class="w-full h-full object-cover rounded-2xl" width="100%" height="500" autoplay muted loop playsinline preload="auto" poster="images/video-poster.jpg" loading="eager">
+        <div class="video-container glass rounded-2xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all group relative border-2 border-cyan-500/30" style="transform: translateZ(0);">
+          <div class="relative w-full bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800 overflow-hidden rounded-2xl" style="transform: translateZ(0);">
+            <video id="introVideo" class="w-full h-full object-cover rounded-2xl" width="100%" height="500" autoplay muted loop playsinline preload="metadata" poster="images/video-poster.jpg" loading="lazy" disablePictureInPicture controlsList="nodownload" style="transform: translateZ(0); will-change: auto;">
               <source src="video/intro.mp4" type="video/mp4">
               <source src="video/intro.webm" type="video/webm">
               Your browser does not support the video tag.
             </video>
 
-            <!-- Professional Video Controls Overlay -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none rounded-2xl"></div>
+            <!-- Professional Video Controls Overlay - Optimized -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none rounded-2xl" style="will-change: opacity; transform: translateZ(0);"></div>
 
             <!-- Mute Toggle -->
             <div class="absolute top-4 right-4 z-20">
@@ -782,19 +782,6 @@
     </div>
   </section>
 
-  <!-- Client Logos Section -->
-  <section id="client-logos" class="py-16 px-6 md:px-12 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-700">
-    <div class="container max-w-6xl mx-auto">
-      <p class="text-center text-sm text-slate-500 dark:text-slate-400 mb-8">Trusted by innovative companies worldwide</p>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 grayscale hover:opacity-100 hover:grayscale-0 transition-all">
-        <div class="client-logo glass p-4 rounded-lg">Company Logo 1</div>
-        <div class="client-logo glass p-4 rounded-lg">Company Logo 2</div>
-        <div class="client-logo glass p-4 rounded-lg">Company Logo 3</div>
-        <div class="client-logo glass p-4 rounded-lg">Company Logo 4</div>
-        <div class="client-logo glass p-4 rounded-lg">Company Logo 5</div>
-      </div>
-    </div>
-  </section>
 
   <!-- Featured On / Trusted By Section -->
   <section id="featured-on" class="py-16 px-6 md:px-12 bg-slate-800 border-y border-cyan-500/20">

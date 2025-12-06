@@ -722,15 +722,35 @@ textarea.input {
 }
 
 /* ========================================
-   Video Container
+   Video Container - Optimized for Performance
    ======================================== */
 .video-container {
   position: relative;
   overflow: hidden;
+  /* Hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+  /* Reduce repaints */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.video-container video {
+  /* Hardware acceleration for video */
+  transform: translateZ(0);
+  will-change: auto;
+  /* Optimize rendering */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* Reduce compositing layers */
+  isolation: isolate;
+  /* Smooth playback */
+  image-rendering: auto;
 }
 
 .video-play-btn {
-  transition: all var(--transition-base);
+  transition: transform 0.2s ease;
+  will-change: transform;
 }
 
 .video-play-btn:hover {
@@ -739,10 +759,25 @@ textarea.input {
 
 #videoOverlay {
   z-index: 10;
+  /* Optimize overlay rendering */
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 #videoOverlay.hidden {
   display: none;
+}
+
+/* Reduce backdrop blur on video container for performance */
+.video-container.glass {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Optimize gradient overlay */
+.video-container .absolute.inset-0 {
+  pointer-events: none;
+  will-change: opacity;
 }
 
 /* ========================================

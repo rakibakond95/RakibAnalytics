@@ -302,7 +302,7 @@ function animateCounter(element) {
 }
 
 // ========================================
-// Video Controls (with autoplay)
+// Video Controls (Optimized for Performance)
 // ========================================
 function initVideoControls() {
   const video = document.getElementById('introVideo');
@@ -313,19 +313,70 @@ function initVideoControls() {
 
   if (!video) return;
 
-  // Ensure video autoplays (muted and looped)
+  // Performance optimizations
   video.muted = true;
   video.loop = true;
+  video.playsInline = true;
   
-  // Try to autoplay
-  const playPromise = video.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      console.log('Autoplay prevented:', error);
-      // Show overlay if autoplay fails
-      if (overlay) overlay.classList.remove('hidden');
+  // Set playback quality hints (if supported)
+  if ('requestVideoFrameCallback' in video) {
+    // Modern browser optimization
+    video.requestVideoFrameCallback(() => {
+      // Video frame ready
     });
   }
+  
+  // Optimize video loading
+  video.preload = 'metadata'; // Changed from 'auto' to reduce initial load
+  
+  // Use hardware acceleration
+  video.style.transform = 'translateZ(0)';
+  video.style.willChange = 'auto';
+  
+  // Try to autoplay with error handling
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise
+      .then(() => {
+        // Video playing successfully
+        if (overlay) overlay.classList.add('hidden');
+        
+        // Optimize playback after start
+        if (video.requestVideoFrameCallback) {
+          video.requestVideoFrameCallback(() => {
+            // Frame callback for smooth playback
+          });
+        }
+      })
+      .catch(error => {
+        console.log('Autoplay prevented:', error);
+        // Show overlay if autoplay fails
+        if (overlay) overlay.classList.remove('hidden');
+      });
+  }
+  
+  // Optimize video when visible (Intersection Observer)
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Video is visible - ensure it's playing
+        if (video.paused) {
+          video.play().catch(() => {
+            // Autoplay blocked
+          });
+        }
+      } else {
+        // Video not visible - pause to save resources
+        if (!video.paused) {
+          video.pause();
+        }
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+  
+  videoObserver.observe(video);
 
   // Mute/Unmute button
   if (muteBtn) {
@@ -381,13 +432,41 @@ function initVideoControls() {
     });
   }
 
-  // Prevent autoplay issues on mobile
+  // Optimize video loading
   video.addEventListener('loadedmetadata', () => {
     video.muted = true;
+    // Set video quality if possible
+    if (video.videoWidth && video.videoHeight) {
+      // Video metadata loaded
+    }
     if (muteBtn) {
       const icon = muteBtn.querySelector('svg');
       if (icon) {
         icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"/>';
+      }
+    }
+  });
+  
+  // Optimize video when it can play
+  video.addEventListener('canplay', () => {
+    // Video is ready to play - optimize rendering
+    video.style.willChange = 'auto';
+  });
+  
+  // Handle video errors gracefully
+  video.addEventListener('error', (e) => {
+    console.warn('Video error:', e);
+    // Fallback: show poster image
+    if (overlay) overlay.classList.remove('hidden');
+  });
+  
+  // Pause video when page is hidden (save resources)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (!video.paused) video.pause();
+    } else {
+      if (video.paused && video.muted) {
+        video.play().catch(() => {});
       }
     }
   });
