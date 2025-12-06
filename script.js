@@ -21,10 +21,45 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletterForm();
   initTestimonialSlider();
   initPricingCalculator();
+  initParticles();
   
   // Wait for Chart.js to load before initializing charts
   waitForChartJS();
 });
+
+// ========================================
+// Particles Animation for Hero (Optimized)
+// ========================================
+function initParticles() {
+  const container = document.getElementById('particles-container');
+  if (!container) return;
+
+  // Reduced particle count for better performance (30 instead of 50)
+  const particleCount = 30;
+  
+  // Use DocumentFragment for better performance
+  const fragment = document.createDocumentFragment();
+  
+  for (let i = 0; i < particleCount; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    
+    // Random starting position
+    particle.style.left = Math.random() * 100 + '%';
+    particle.style.top = Math.random() * 100 + '%';
+    
+    // Random animation delay and duration
+    particle.style.animationDelay = Math.random() * 15 + 's';
+    particle.style.animationDuration = (Math.random() * 8 + 12) + 's';
+    
+    // Use transform for better performance
+    particle.style.willChange = 'transform, opacity';
+    
+    fragment.appendChild(particle);
+  }
+  
+  container.appendChild(fragment);
+}
 
 // ========================================
 // Enhanced Page Loader with Progress
@@ -36,12 +71,12 @@ function initPageLoader() {
 
   let progress = 0;
   const progressInterval = setInterval(() => {
-    progress += Math.random() * 15;
+    progress += Math.random() * 20 + 10; // Faster progress
     if (progress > 90) progress = 90;
     if (progressBar) {
       progressBar.style.width = progress + '%';
     }
-  }, 100);
+  }, 50); // Faster interval
 
   // Simulate loading progress
   const resources = [
@@ -115,7 +150,7 @@ function initPageLoader() {
     }, 300);
   });
   
-  // Fallback: Show content after 1.5 seconds even if resources don't load
+  // Fallback: Show content after 800ms even if resources don't load (faster)
   setTimeout(() => {
     if (!document.body.classList.contains('loaded')) {
       document.body.classList.add('loaded');
@@ -127,10 +162,10 @@ function initPageLoader() {
         setTimeout(() => {
           loader.style.display = 'none';
           enableInteractions();
-        }, 500);
+        }, 300);
       }
     }
-  }, 1500);
+  }, 800);
 }
 
 // ========================================
@@ -140,10 +175,13 @@ function initThemeToggle() {
   const themeToggle = document.getElementById('theme-toggle');
   const themeIcon = document.getElementById('theme-icon');
   const html = document.documentElement;
+  const body = document.body;
 
-  // Check for saved theme preference or default to light mode
-  const currentTheme = localStorage.getItem('theme') || 'light';
+  // Check for saved theme preference or default to dark mode (matching HTML)
+  const savedTheme = localStorage.getItem('theme');
+  const currentTheme = savedTheme || (html.getAttribute('data-theme') || 'dark');
   html.setAttribute('data-theme', currentTheme);
+  body.setAttribute('data-theme', currentTheme);
   updateThemeIcon(currentTheme === 'dark', themeIcon);
 
   if (themeToggle) {
@@ -152,8 +190,14 @@ function initThemeToggle() {
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       
       html.setAttribute('data-theme', newTheme);
+      body.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
       updateThemeIcon(newTheme === 'dark', themeIcon);
+      
+      // Force a repaint to ensure styles update
+      body.style.display = 'none';
+      body.offsetHeight; // Trigger reflow
+      body.style.display = '';
     });
   }
 }
@@ -258,7 +302,7 @@ function animateCounter(element) {
 }
 
 // ========================================
-// Video Controls
+// Video Controls (with autoplay)
 // ========================================
 function initVideoControls() {
   const video = document.getElementById('introVideo');
@@ -268,6 +312,20 @@ function initVideoControls() {
   const overlayIcon = document.getElementById('videoOverlayIcon');
 
   if (!video) return;
+
+  // Ensure video autoplays (muted and looped)
+  video.muted = true;
+  video.loop = true;
+  
+  // Try to autoplay
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      console.log('Autoplay prevented:', error);
+      // Show overlay if autoplay fails
+      if (overlay) overlay.classList.remove('hidden');
+    });
+  }
 
   // Mute/Unmute button
   if (muteBtn) {
@@ -369,7 +427,7 @@ function initProjectFilter() {
 }
 
 // ========================================
-// Contact Form
+// Contact Form (Formspree Integration)
 // ========================================
 function initContactForm() {
   const form = document.getElementById('contactForm');
@@ -377,38 +435,49 @@ function initContactForm() {
 
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     
-    // Get form data
-    const formData = new FormData(form);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
-    
-    // Create mailto link with subject and body
-    const subject = encodeURIComponent(`Contact from ${name} - Portfolio Website`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    const mailtoLink = `mailto:rakib.akond@outlook.com?subject=${subject}&body=${body}`;
-    
     // Disable form during submission
     submitButton.disabled = true;
-    submitButton.textContent = 'Opening Email...';
+    submitButton.textContent = 'Sending...';
     form.classList.add('loading');
 
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show success message
-    setTimeout(() => {
-      showFormMessage('Email client opened! Please send your message.', 'success');
+    try {
+      const formData = new FormData(form);
+      
+      // Use Formspree endpoint
+      // Note: Replace YOUR_FORM_ID in HTML with your actual Formspree form ID
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        showFormMessage('Message sent successfully! I\'ll get back to you within 24 hours.', 'success');
+        form.reset();
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          showFormMessage('Please check your form and try again.', 'error');
+        } else {
+          showFormMessage('Something went wrong. Please try again or email me directly.', 'error');
+        }
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      showFormMessage('Network error. Please try again or email me directly at rakib.akond@outlook.com', 'error');
+    } finally {
       submitButton.disabled = false;
       submitButton.textContent = originalText;
       form.classList.remove('loading');
-    }, 500);
+    }
   });
 }
 
